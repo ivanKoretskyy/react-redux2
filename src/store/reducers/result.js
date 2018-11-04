@@ -1,4 +1,4 @@
-import * as actionType from '../actions';
+import * as actionType from '../actions/actions';
 
 const initialState = {
   results: []
@@ -11,10 +11,10 @@ const reducer = (state = initialState, action) => {
     case actionType.STORE_RESULT:
       return {
         ...state,
-        results: [...state.results, {count: action.result, id: (new Date()).getTime()}]
+        results: [...state.results, { count: action.payload, id: (new Date()).getTime() }]
       }
-      case actionType.DELETE_RESULT:
-      console.log('delete results: ',action.id,)
+    case actionType.DELETE_RESULT:
+      console.log('delete results: ', action.payload, )
       const results = state.results.filter(r => r.id !== action.id);
       return {
         ...state,
@@ -22,7 +22,7 @@ const reducer = (state = initialState, action) => {
       }
     default:
       return state
-    }
+  }
 
 }
 
