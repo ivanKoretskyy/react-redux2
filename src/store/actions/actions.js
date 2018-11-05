@@ -41,7 +41,7 @@ export const save_result = (payload) => {
 
 export const store_result = (payload) => {
     const asyncResult = (dispatch) => {
-        setTimeout((payload) => {
+        setTimeout(() => {
             dispatch(save_result(payload))
         }, 2000);
     }
